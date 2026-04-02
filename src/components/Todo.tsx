@@ -5,7 +5,6 @@ const Todo = () => {
     const {todos, toggleTodoAsCompleted, handleDeleteTodo} = useTodos();
     const [searchParams] = useSearchParams();
     let todosData = searchParams.get("todos");
-    console.log("file: ", todosData)
 
     let filterData = todos;
 
@@ -16,9 +15,9 @@ const Todo = () => {
     if(todosData === "completed"){
         filterData = filterData.filter((task) => task.completed)
     }
-    
+
   return (
-    <ul>
+    <ul className='main-task'>
         {
             filterData.map((todos) => {
                 return <li key={todos.id}>
